@@ -1,9 +1,13 @@
 class Api::V1::ImagePortfoliosController < ApplicationController
   before_action :authenticate_with_token!, only: [:create]
   respond_to :json
-  
+
   def show
     respond_with ImagePortfolio.find(params[:id])
+  end
+
+  def index
+    respond_with ImagePortfolio.all 
   end
 
   def create

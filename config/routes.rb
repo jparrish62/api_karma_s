@@ -6,7 +6,7 @@ ApiKarmaS::Application.routes.draw do
       constraints: ApiConstraints.new(version: 1, default: true) do
           resources   :users,    :only => [:show,   :create, :update, :destroy] do
             resources   :stylists, :only => [:create, :update, :destroy] do
-              resources :image_portfolios, :only => [:show, :create]
+              resources :image_portfolios, :only => [:show, :create, :index]
               resources :appointments, :only => [:show, :create]
             end
           end
