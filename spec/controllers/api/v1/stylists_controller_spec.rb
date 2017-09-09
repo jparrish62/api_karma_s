@@ -30,7 +30,7 @@ RSpec.describe Api::V1::StylistsController, type: :controller do
   describe "Post create" do
     context "When its succesfully created" do
       before(:each) do
-        user = FactoryGirl.create :user
+        user = FactoryGirl.create :user, :admin
         @stylist_attributes = FactoryGirl.attributes_for :stylist
         api_authorization_header user.auth_token
         post :create, params:{user_id: user.id, stylist: @stylist_attributes}, format: :json
@@ -45,7 +45,7 @@ RSpec.describe Api::V1::StylistsController, type: :controller do
     end
     context 'when is not created' do
       before(:each) do
-        user = FactoryGirl.create :user
+        user = FactoryGirl.create :user, :admin
         @invalid_stylist_attributes = {first_name: " ", last_name: 'Doe'}
         api_authorization_header user.auth_token
         post :create , params: {user_id: user.id, stylist: @invalid_stylist_attributes}, format: :json

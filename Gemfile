@@ -28,6 +28,8 @@ gem 'pry-rails', '~> 0.3.6'
 
 gem 'pry-remote', '~> 0.1.8'
 
+gem 'pundit', '~> 1.1'
+
 gem 'active_model_serializers', '~> 0.10.6'
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
@@ -41,19 +43,6 @@ gem 'google-api-client', '~> 0.9.20', require: 'google/apis/calendar_v3'
 gem 'json', '~> 2.0', '>= 2.0.2'
 
 gem 'uglifier', '>= 1.3.0'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.6'

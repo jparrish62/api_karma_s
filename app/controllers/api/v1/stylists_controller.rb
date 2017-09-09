@@ -10,6 +10,7 @@ class Api::V1::StylistsController < ApplicationController
   end
 
   def create
+    authorize User
     stylist = current_user.stylist.build(stylist_params)
     if stylist.save
       render json: stylist, status: 201, location: [:api, stylist]
