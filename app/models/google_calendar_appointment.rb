@@ -8,8 +8,8 @@ class GoogleCalendarAppointment
 
   def initial_call(url)
     Signet::OAuth2::Client.new({
-      client_id: CLIENT_ID,
-      client_secret: CLIENT_SECRET,
+      client_id: '930993634405-hc7tp5aeauh6ga79d99q8t2pgt7c7hmq.apps.googleusercontent.com',
+      client_secret: '96qH6H2uLVpAhaNRI_KIyibO',
       authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
       scope: CALENDAR_SCOPE,
       redirect_uri: url
@@ -18,8 +18,8 @@ class GoogleCalendarAppointment
 
   def callback_obj(params, url)
     Signet::OAuth2::Client.new({
-      client_id: CLIENT_ID,
-      client_secret: CLIENT_SECRET,
+      client_id: '930993634405-hc7tp5aeauh6ga79d99q8t2pgt7c7hmq.apps.googleusercontent.com',
+      client_secret: '96qH6H2uLVpAhaNRI_KIyibO',
       token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
       redirect_uri: url,
       code: params[:code]

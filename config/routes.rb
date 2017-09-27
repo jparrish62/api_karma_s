@@ -4,6 +4,8 @@ ApiKarmaS::Application.routes.draw do
                             constraints: {subdomain: 'api'}, path: '/' do
     scope module: :v1,
       constraints: ApiConstraints.new(version: 1, default: true) do
+        get '/oauth2callback' => 'calendar_appointments#callback'
+        get '/calendar_appointments' => 'calendar_appointments#calendars'
           resources   :users,    :only => [:show,   :create, :update, :destroy] do
             resources   :stylists, :only => [:create, :update, :destroy] do
               resources :image_portfolios, :only => [:show, :create, :index]
@@ -14,9 +16,5 @@ ApiKarmaS::Application.routes.draw do
       resources   :stylists, :only => [:show, :index]
     end
   end
-
-  get '/oauth2callback' => 'calendar_appointments#callback'
-  get '/calendar_appointments' => 'calendar_appointments#calendars'
-
   devise_for :users, :controllers => { registrations: 'registrations' }
 end

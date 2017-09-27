@@ -18,8 +18,6 @@ gem 'rack-jsonp-middleware', '~> 0.0.10', :require => 'rack/jsonp'
 
 gem 'rack-cors', :require => 'rack/cors'
 
-gem 'paperclip', '~> 5.1'
-
 gem 'active_model_serializers', '~> 0.10.6'
 
 gem 'devise', '~> 4.3'

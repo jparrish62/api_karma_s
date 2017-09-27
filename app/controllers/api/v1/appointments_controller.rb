@@ -13,9 +13,8 @@ class Api::V1::AppointmentsController < ApplicationController
     if appointment.save
       session[:appointment_id] = appointment.id
       google_appointment = GoogleCalendarAppointment.new(appointment)
-      google_client = google_appointment.initial_call(oauth2callback_url)
-      google_client.authorization_uri.to_s
-      render json: appointment, status: 200, location: [:api, current_user, stylist, appointment]
+      google_client = google_appointment.initial_call(api_oauth2callback_url)
+      redirect_to google_client.authorization_uri.to_s
     else
       render json: {errors: appointment.errors.full_messages}, status: 422
     end
