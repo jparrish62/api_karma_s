@@ -10,11 +10,10 @@ class Api::V1::AppointmentsController < ApplicationController
     stylist.email = stylist.email.downcase!
     appointment = stylist.appointments.build(app_params)
     appointment.user = current_user
+    puts appointment.name
     if appointment.save
-      session[:appointment_id] = appointment.id
-      google_appointment = GoogleCalendarAppointment.new(appointment)
-      google_client = google_appointment.initial_call(api_oauth2callback_url)
-      redirect_to google_client.authorization_uri.to_s
+      google_appointment = GoogleCalendarAppointment.new(appointment).create_calendar_event
+      render json: { status: 201 }
     else
       render json: {errors: appointment.errors.full_messages}, status: 422
     end
