@@ -52,10 +52,6 @@ ActiveRecord::Schema.define(version: 20170909170459) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.string "profile_pic"
     t.index ["user_id"], name: "index_stylists_on_user_id"
   end
