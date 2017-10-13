@@ -12,6 +12,7 @@ class Api::V1::AppointmentsController < ApplicationController
     appointment.user = current_user
     if appointment.save
       google_appointment = GoogleCalendarAppointment.new(appointment).create_calendar_event
+      AppointmentMailer.confirmation_email(current_user).deliver
       render json: { status: 201 }
     else
       render json: {errors: appointment.errors.full_messages}, status: 422
