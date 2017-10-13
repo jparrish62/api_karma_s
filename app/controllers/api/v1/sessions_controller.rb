@@ -1,4 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
+  before_action :authenticate_with_token!, only: [:destroy]
   respond_to :json
   def create
     user_password = params[:session][:password]
@@ -16,6 +17,7 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def destroy
+    puts "hello"
     user = User.find_by(auth_token: params[:id])
     user.generate_authentication_token!
     user.save
