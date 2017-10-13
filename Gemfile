@@ -9,8 +9,14 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :production do
+  gem 'pg'
+end
+
+group :development do
+  gem 'sqlite3'
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
@@ -27,8 +33,6 @@ gem 'pry-rails', '~> 0.3.6'
 gem 'pry-remote', '~> 0.1.8'
 
 gem 'pundit', '~> 1.1'
-
-gem 'active_model_serializers', '~> 0.10.6'
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 
