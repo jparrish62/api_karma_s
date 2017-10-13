@@ -10,7 +10,6 @@ class Api::V1::AppointmentsController < ApplicationController
     stylist.email = stylist.email.downcase!
     appointment = stylist.appointments.build(app_params)
     appointment.user = current_user
-    puts appointment.name
     if appointment.save
       google_appointment = GoogleCalendarAppointment.new(appointment).create_calendar_event
       render json: { status: 201 }

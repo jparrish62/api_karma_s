@@ -28,10 +28,10 @@ RSpec.describe Api::V1::AppointmentsController, type: :controller do
 
       it "renders a json representation for the product record just created" do
         appointment_response = json_response
-        expect(appointment_response[:name]).to eq @appointment_attributes[:name]
+        expect(appointment_response[:status]).to eq 201
       end
 
-      it {should respond_with 200}
+
     end
   end
 end
