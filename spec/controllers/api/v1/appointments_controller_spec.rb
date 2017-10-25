@@ -30,8 +30,7 @@ RSpec.describe Api::V1::AppointmentsController, type: :controller do
         appointment_response = json_response
         expect(appointment_response[:status]).to eq 201
       end
-
-
+      
     end
   end
 end
